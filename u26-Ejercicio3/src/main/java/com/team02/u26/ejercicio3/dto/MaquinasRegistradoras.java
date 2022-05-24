@@ -1,4 +1,4 @@
-package com.team02.u26.ejercicio3.dto;
+ package com.team02.u26.ejercicio3.dto;
 
 import java.util.List;
 

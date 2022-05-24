@@ -1,8 +1,12 @@
-drop table if exists cajeros;
+create database grandes_almacenes;
+
+use grandes_almacenes;
+
 drop table if exists productos;
 drop table if exists maquinas_registradoras;
 drop table if exists venta;
 
+drop table if exists cajeros;
 create table cajeros(
 codigo int auto_increment primary key,
 nom_apels varchar(255)
@@ -35,3 +39,13 @@ Key(producto),
 foreign key(producto) references productos(codigo)
 on delete restrict on update cascade
 );
+
+insert into cajeros values(default,"Joan");
+insert into maquinas_registradoras values(default,1);
+insert into productos values(default,"Producto1",300);
+insert into venta values(default,2,1,1);
+
+select * from cajeros;
+select * from maquinas_registradoras;
+select * from productos;
+select * from venta;

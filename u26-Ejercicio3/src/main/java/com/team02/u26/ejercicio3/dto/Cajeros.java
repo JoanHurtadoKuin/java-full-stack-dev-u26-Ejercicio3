@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name= "cajeros")
 public class Cajeros {
 	
-	//Atributos de entidad cliente
+	//Atributos de entidad Cajeros
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
@@ -56,7 +56,7 @@ public class Cajeros {
 	}
 
 	
-	@JsonIgnore
+	@JsonIgnore //ignoramos la generacion del JSON para evitar bucles
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Venta")
 	public List<Venta> getVenta() {
 		return venta;

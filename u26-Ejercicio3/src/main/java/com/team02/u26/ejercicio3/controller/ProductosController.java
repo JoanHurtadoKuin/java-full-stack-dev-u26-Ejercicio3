@@ -22,17 +22,17 @@ public class ProductosController {
 	@Autowired
 	ProductosServiceImpl productosServiceImpl;
 	
-	@GetMapping("/")
+	@GetMapping("/")//Endpoint para listar los productos
 	public List<Productos> listarProductos(){
 		return productosServiceImpl.listarProductos();
 	}
 
-	@PostMapping("/")
+	@PostMapping("/")//Endpoint para insrtar productos
 	public Productos salvarProductos(@RequestBody Productos Productos) {
 		return productosServiceImpl.guardarProductos(Productos);
 	}
 	
-	@GetMapping("/{codigo}")
+	@GetMapping("/{codigo}")//Endpoint para filtrar productos pasandole un codigo 
 	public Productos productosXID(@PathVariable(name="codigo") int codigo) {
 		Productos productos_xid = new Productos();
 		productos_xid = productosServiceImpl.ProductosXID(codigo);
@@ -40,7 +40,7 @@ public class ProductosController {
 		return productos_xid;
 	}
 	
-	@PutMapping("/{codigo}")
+	@PutMapping("/{codigo}")//Endpoint para actualizar productos pasandole un codigo
 	public Productos actualizarProductos(@PathVariable(name="codigo")int codigo,@RequestBody Productos Productos) {
 		
 		Productos productos_seleccionado= new Productos();
@@ -57,7 +57,7 @@ public class ProductosController {
 		return productos_actualizado;
 	}
 	
-	@DeleteMapping("/{codigo}")
+	@DeleteMapping("/{codigo}")//Endpoint para borrar productos pasadole el codigo
 	public void eliminarProductos(@PathVariable(name="codigo") int codigo) {
 		productosServiceImpl.eliminarProductos(codigo);
 	}

@@ -22,17 +22,17 @@ public class VentaController {
 	@Autowired
 	VentaServiceImpl ventaServiceImpl;
 	
-	@GetMapping("/")
+	@GetMapping("/")//Endpoint para listar los venta
 	public List<Venta> listarventa(){
 		return ventaServiceImpl.listarVenta();
 	}
 
-	@PostMapping("/")
+	@PostMapping("/")//Endpoint para insertar venta
 	public Venta salvarventa(@RequestBody Venta venta) {
 		return ventaServiceImpl.guardarVenta(venta);
 	}
 	
-	@GetMapping("/{codigo}")
+	@GetMapping("/{codigo}")//Endpoint para filtrar venta pasandole un codigo 
 	public Venta ventaXID(@PathVariable(name="codigo") int codigo) {
 		Venta venta_xid = new Venta();
 		venta_xid = ventaServiceImpl.ventaXID(codigo);
@@ -40,7 +40,7 @@ public class VentaController {
 		return venta_xid;
 	}
 	
-	@PutMapping("/{codigo}")
+	@PutMapping("/{codigo}")//Endpoint para actualizar venta pasandole un codigo
 	public Venta actualizarventa(@PathVariable(name="codigo")int codigo,@RequestBody Venta venta) {
 		
 		Venta venta_seleccionado= new Venta();
@@ -57,7 +57,7 @@ public class VentaController {
 		return venta_actualizado;
 	}
 	
-	@DeleteMapping("/{codigo}")
+	@DeleteMapping("/{codigo}")//Endpoint para borrar venta pasadole el codigo
 	public void eliminarventa(@PathVariable(name="codigo") int codigo) {
 		ventaServiceImpl.eliminarVenta(codigo);
 	}

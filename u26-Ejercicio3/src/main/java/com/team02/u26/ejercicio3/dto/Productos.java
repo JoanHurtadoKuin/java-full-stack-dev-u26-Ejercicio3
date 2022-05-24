@@ -70,6 +70,7 @@ public class Productos {
 		this.precio = precio;
 	}
 	
+	//Ignoramos el JSON
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Venta")
 	public List<Venta> getVenta() {

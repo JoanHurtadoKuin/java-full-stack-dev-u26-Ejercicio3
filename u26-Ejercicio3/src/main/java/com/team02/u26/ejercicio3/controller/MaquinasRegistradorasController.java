@@ -22,17 +22,17 @@ public class MaquinasRegistradorasController {
 	@Autowired
 	MaquinasRegistradorasServiceImpl maquinasRegistradorasServiceImpl;
 	
-	@GetMapping("/")
+	@GetMapping("/")//Endpoint para listar los maquinas registradoras
 	public List<MaquinasRegistradoras> listarMaquinasRegistradoras(){
 		return maquinasRegistradorasServiceImpl.listarMaquinasRegistradoras();
 	}
 
-	@PostMapping("/")
+	@PostMapping("/")//Endpoint para insrtar maquinas registradoras
 	public MaquinasRegistradoras salvarMaquinasRegistradoras(@RequestBody MaquinasRegistradoras maquinasRegistradoras) {
 		return maquinasRegistradorasServiceImpl.guardarMaquinasRegistradoras(maquinasRegistradoras);
 	}
 	
-	@GetMapping("/{codigo}")
+	@GetMapping("/{codigo}")//Endpoint para filtrar maquinas registradoras pasandole un codigo
 	public MaquinasRegistradoras MaquinasRegistradorasXID(@PathVariable(name="codigo") int codigo) {
 		MaquinasRegistradoras maquinaRegistradora_xid = new MaquinasRegistradoras();
 		maquinaRegistradora_xid = maquinasRegistradorasServiceImpl.MaquinasRegistradorasXID(codigo);
@@ -40,7 +40,7 @@ public class MaquinasRegistradorasController {
 		return maquinaRegistradora_xid;
 	}
 	
-	@PutMapping("/{codigo}")
+	@PutMapping("/{codigo}")//Endpoint para actualizar maquinas registradoras pasandole un codigo
 	public MaquinasRegistradoras actualizarMaquinasRegistradoras(@PathVariable(name="codigo")int codigo,@RequestBody MaquinasRegistradoras MaquinasRegistradoras) {
 		
 		MaquinasRegistradoras maquinasRegistradoras_seleccionado= new MaquinasRegistradoras();
@@ -56,7 +56,7 @@ public class MaquinasRegistradorasController {
 		return maquinasRegistradoras_actualizado;
 	}
 	
-	@DeleteMapping("/{codigo}")
+	@DeleteMapping("/{codigo}")//Endpoint para borrar maquinas registradoras pasadole el codigo
 	public void eliminarMaquinasRegistradoras(@PathVariable(name="codigo") int codigo) {
 		maquinasRegistradorasServiceImpl.eliminarMaquinasRegistradoras(codigo);
 	}

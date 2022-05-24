@@ -22,17 +22,17 @@ public class CajerosController {
 	@Autowired
 	CajerosServiceImpl cajerosServiceImpl;
 	
-	@GetMapping("/")
+	@GetMapping("/")//Endpoint para listar los cajeros
 	public List<Cajeros> listarCajeros(){
 		return cajerosServiceImpl.listarCajeros();
 	}
 
-	@PostMapping("/")
+	@PostMapping("/")//Endpoint para insrtar cajeros
 	public Cajeros salvarCajeros(@RequestBody Cajeros cajeros) {
 		return cajerosServiceImpl.guardarCajeros(cajeros);
 	}
 	
-	@GetMapping("/{codigo}")
+	@GetMapping("/{codigo}")//Endpoint para filtrar cajeros pasandole un codigo 
 	public Cajeros cajerosXID(@PathVariable(name="codigo") int codigo) {
 		Cajeros cajero_xid = new Cajeros();
 		cajero_xid = cajerosServiceImpl.cajerosXID(codigo);
@@ -40,7 +40,7 @@ public class CajerosController {
 		return cajero_xid;
 	}
 	
-	@PutMapping("/{codigo}")
+	@PutMapping("/{codigo}")//Endpoint para actualizar cajero pasandole un codigo
 	public Cajeros actualizarCajeros(@PathVariable(name="codigo")int codigo,@RequestBody Cajeros cajeros) {
 		
 		Cajeros cajeros_seleccionado= new Cajeros();
@@ -56,7 +56,7 @@ public class CajerosController {
 		return cajeros_actualizado;
 	}
 	
-	@DeleteMapping("/{codigo}")
+	@DeleteMapping("/{codigo}")//Endpoint para borrar cajeros pasadole el codigo
 	public void eliminarCajeros(@PathVariable(name="codigo") int codigo) {
 		cajerosServiceImpl.eliminarCajeros(codigo);
 	}

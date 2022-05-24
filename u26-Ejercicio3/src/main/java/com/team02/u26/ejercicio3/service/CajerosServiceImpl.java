@@ -27,7 +27,7 @@ public class CajerosServiceImpl implements ICajerosService {
 	}
 
 	@Override
-	public Cajeros CajerosXID(int codigo) {
+	public Cajeros cajerosXID(int codigo) {
 		// TODO Auto-generated method stub
 		return iCajerosDAO.findById(codigo).get();
 	}

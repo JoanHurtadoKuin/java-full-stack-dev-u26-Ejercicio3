@@ -12,7 +12,7 @@ public interface ICajerosService {
 
 	public Cajeros guardarCajeros(Cajeros cajeros);
 
-	public Cajeros CajerosXID(int codigo);
+	public Cajeros cajerosXID(int codigo);
 
 	public Cajeros actualizarCajeros(Cajeros cajeros);
 

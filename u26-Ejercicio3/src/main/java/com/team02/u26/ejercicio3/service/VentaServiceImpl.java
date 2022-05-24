@@ -25,7 +25,7 @@ public class VentaServiceImpl implements IVentaService{
 	}
 
 	@Override
-	public Venta VentaXID(int codigo) {
+	public Venta ventaXID(int codigo) {
 		return iVentaDAO.findById(codigo).get();
 	}
 
